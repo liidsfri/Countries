@@ -1,0 +1,26 @@
+@mixin bk-search($light: true) {
+    @include theme-colors($light);
+    border-radius: 0.5rem;
+}
+
+@mixin search($light: true){
+    @include bk-search($light);
+    input{
+        @include bk-search($light);
+        outline: none;
+        width: 20rem;
+        height: 3rem;
+        border: none;
+    }
+    ::placeholder{
+        @include theme-colors($light);
+    }
+}
+
+.search-light{
+    @include search(true);
+}
+
+.search-dark{
+    @include search(false);
+}

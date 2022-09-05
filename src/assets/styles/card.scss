@@ -1,0 +1,36 @@
+
+@mixin card($light: true) {
+    width: 17rem;
+    @include theme-colors($light);
+    transition: ease 0.3s;
+    cursor: pointer;
+    img{
+        height: 12rem;
+        box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.2);
+    }
+}
+
+.card:hover{
+    box-shadow: 0rem 0rem 2rem rgba(0, 0, 0, 0.8);
+}
+
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.loading-card{
+    animation: glow 1.5s ease-in-out infinite;
+    background: #eee;
+    color: transparent;
+    cursor: progress;
+}
+
+.card-light{
+    @include card(true)
+}
+
+.card-dark{
+    @include card(false)
+}

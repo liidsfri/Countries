@@ -1,0 +1,27 @@
+<div class="mt-3 flex ml-4 mr-4">
+    <div class="flex-ac pl-1" [ngClass]="{'search-light':light, 'search-dark':!light}">
+        <mat-icon>search</mat-icon>
+        <input class="pl-1" type="text" placeholder="Search for a country..." [formControl]="searchInputControl">
+    </div>
+    <button mat-button [matMenuTriggerFor]="menu" [ngClass]="{'filter-light':light, 'filter-dark':!light}">Filter by region <mat-icon>keyboard_arrow_down</mat-icon></button>
+</div>
+<mat-menu [ngClass]="{'filter-light':light, 'filter-dark':!light}" class="mt-0_5" #menu="matMenu">
+    <button (click)="filterRegion('')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>All</button>
+    <button (click)="filterRegion('Africa')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>Africa</button>
+    <button (click)="filterRegion('America')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>America</button>
+    <button (click)="filterRegion('Asia')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>Asia</button>
+    <button (click)="filterRegion('Europe')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>Europe</button>
+    <button (click)="filterRegion('Oceania')" [ngClass]="{'filter-light':light, 'filter-dark':!light}" mat-menu-item>Oceania</button>
+</mat-menu>
+<div class="flex">
+    <ng-container *ngIf="!loading; else loadingg">
+        <ng-container *ngFor="let caountry of countriesFil">
+            <app-card [country]="caountry" [loading]="loading" [light]="light"></app-card>
+        </ng-container>
+    </ng-container>
+</div>
+<ng-template #loadingg>
+    <ng-container *ngFor="let num of [0,1,2,3,4,5,6,7,8,9]">
+        <app-card></app-card>
+    </ng-container>
+</ng-template>

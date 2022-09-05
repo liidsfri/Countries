@@ -1,0 +1,6 @@
+
+.background{
+    @include theme-colors($light-theme: false);
+    height: 5rem;
+    box-shadow: 0rem 0rem 1rem rgba(0, 0, 0, 0.3);
+}

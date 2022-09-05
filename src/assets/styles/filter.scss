@@ -1,0 +1,12 @@
+@mixin filter($light: true){
+    @include theme-colors($light);
+    width: 10rem;
+}
+
+.filter-light{
+    @include filter(true);
+}
+
+.filter-dark{
+    @include filter(false);
+}

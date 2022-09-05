@@ -1,0 +1,13 @@
+
+$light-color: white;
+$dark-color: rgb(60, 67, 91);
+
+@mixin theme-colors($light-theme: true) {
+    @if $light-theme {
+        background-color: $light-color;
+        color: $dark-color;
+    } @else{
+        background-color: $dark-color;
+        color: $light-color;
+    }
+}
